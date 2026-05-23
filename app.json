@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Personal Hub",
+    "slug": "personal-hub",
+    "version": "1.0.0",
+    "scheme": "personalhub",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "./plugins/withAndroidWidgets"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.personalhub.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F766E"
+      }
+    }
+  }
+}
