@@ -1,26 +1,22 @@
 {
   "expo": {
-    "name": "Personal Hub",
-    "slug": "personal-hub",
+    "name": "Calculo Mental",
+    "slug": "mental-math-game",
     "version": "1.0.0",
-    "scheme": "personalhub",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "assetBundlePatterns": [
       "**/*"
     ],
-    "plugins": [
-      "./plugins/withAndroidWidgets"
-    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "package": "com.personalhub.app",
       "adaptiveIcon": {
-        "backgroundColor": "#0F766E"
+        "backgroundColor": "#2563EB"
       }
     }
   }
 }
+

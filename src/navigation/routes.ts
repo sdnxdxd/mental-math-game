@@ -2,23 +2,6 @@ import type { Difficulty, GameMode, GameSettings, GameSummary } from '../utils/g
 
 export type RootStackParamList = {
   Home: undefined;
-  Productivity: undefined;
-  WealthManager: undefined;
-  FinanceWishlist: undefined;
-  InvestmentAdvisor: undefined;
-  HealthTracker: undefined;
-  HealthProgress: undefined;
-  WidgetCenter: undefined;
-  DataBackup: undefined;
-  EventEditor: {
-    eventId?: string;
-    selectedDate?: string;
-  };
-  Focus: {
-    eventId?: string;
-  };
-  FocusHistory: undefined;
-  CalendarSync: undefined;
   GameConfig: undefined;
   Game: {
     settings: GameSettings;
@@ -41,3 +24,4 @@ export const MODE_LABELS: Record<GameMode, string> = {
   multipleChoice: 'Multiple Choice',
   timeAttack: 'Contra reloj',
 };
+

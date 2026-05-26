@@ -1,75 +1,42 @@
-# Personal Hub
+# Calculo Mental
 
-Aplicacion movil Android hecha con Expo, React Native y TypeScript para unificar productividad, finanzas y salud.
+Juego offline de calculos mentales hecho con Expo, React Native y TypeScript.
 
-## Estado actual
+## Funcionalidades
 
-- Home principal para navegar entre Productividad, Finanzas, Salud, Widgets y Backup.
-- Productividad: calendario CRUD local, Google Calendar sync via backend, snapshot canonico de foco/eventos y foco estilo Pomodoro.
-- Finanzas: presupuesto mensual, gastos diarios, capacidad de ahorro, wishlist multimoneda y consejero educativo de inversiones.
-- Salud: motor metabolico, nutricion diaria, agua, rutinas por dia, GIFs de tecnica, logs de series, descanso automatico y progresion.
-- Widgets: snapshots para proximo evento, calorias restantes, resumen financiero, acceso rapido de gasto y providers nativos Android con deep links.
-- Backup: exportacion/restauracion JSON de datos locales de AsyncStorage.
-- Backend Spring Boot en `backend/` con Flyway, H2 dev, Google Calendar OAuth, usuario por instalacion y endpoints de sync.
+- 4 modos de juego: clasico, verdadero/falso, multiple choice y contra reloj.
+- Dificultad facil, media y dificil.
+- Cantidad de preguntas configurable para rondas normales.
+- Puntaje por velocidad, error y timeout.
+- Timer visual por pregunta y timer global en contra reloj.
+- Dificultad dinamica con reduccion progresiva del tiempo.
+- Persistencia local con AsyncStorage.
+- Historial y mejores puntajes por modo/dificultad.
+- Estadisticas finales con grafico.
+- Feedback visual con Animated y sonidos locales offline.
 
-## Instalacion movil
+## Instalacion
 
 ```bash
 npm install
 ```
 
-## Ejecutar app
+## Ejecutar
 
 ```bash
 npm run start
 ```
 
-La app usa por defecto `http://10.0.2.2:8080` para llegar al backend desde un emulador Android. Esa URL se puede cambiar desde la pantalla de sincronizacion de Calendar.
+Luego escanea el QR con Expo Go o abre el emulador desde la terminal de Expo.
 
-## Validacion movil
+## Pruebas manuales recomendadas
 
-```bash
-npm run typecheck
-```
+1. Jugar una partida en cada modo.
+2. Verificar que acierto rapido suma 100.
+3. Verificar que acierto dentro del tiempo suma 70.
+4. Verificar que error resta 30.
+5. Verificar que timeout resta 50.
+6. Confirmar que contra reloj termina al fallar o al agotarse el tiempo global.
+7. Finalizar una partida, cerrar y abrir la app, y revisar historial/mejores puntajes.
+8. Activar modo avion y confirmar que todo sigue funcionando.
 
-Para validar el bundle Android con Metro activo:
-
-```bash
-curl "http://127.0.0.1:8081/node_modules/expo/AppEntry.bundle?platform=android&dev=true&hot=false&transform.engine=hermes&transform.bytecode=1&transform.routerRoot=app&unstable_transformProfile=hermes-stable"
-```
-
-## Backend
-
-El backend esta en `backend/`.
-
-Endpoints principales:
-
-- `GET /api/health`
-- `POST /api/productivity/sync`
-- `POST /api/finance/sync`
-- `POST /api/finance/advisor/analyze`
-- `POST /api/health-tracker/sync`
-- `GET /api/auth/google/start`
-- `GET /api/auth/google/callback`
-- `GET /api/auth/google/status`
-- `GET /api/calendar/google/import`
-
-Para ejecutarlo se necesita Maven:
-
-```bash
-cd backend
-mvn spring-boot:run
-```
-
-## Proximos pasos
-
-1. Instalar Maven y compilar backend.
-2. Probar sync end-to-end con H2 y luego Postgres.
-3. Probar OAuth real de Google Calendar.
-4. Endurecer auth multiusuario real sobre el header de usuario por instalacion.
-5. Conectar el consejero financiero a AI y datos de mercado.
-6. Ejecutar `expo prebuild` y validar widgets nativos en Android.
-
-## Deep links
-
-La app registra el esquema `personalhub://`. Los widgets nativos abren rutas como `personalhub://productivity`, `personalhub://health` y `personalhub://widgets`.
